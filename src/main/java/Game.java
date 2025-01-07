@@ -1,8 +1,6 @@
 public class Game {
     private final Player player1;
     private final Player player2;
-    private int player1Move;
-    private int player2Move;
     private Player winner;
 
     public Game(Player player1, Player player2) {
@@ -11,8 +9,8 @@ public class Game {
     }
 
     public void play() {
-        player1Move = player1.chooseMove();
-        player2Move = player2.chooseMove();
+        int player1Move = player1.chooseMove();
+        int player2Move = player2.chooseMove();
 
         if (Move.beats(player1Move, player2Move)) {
             winner = player1;

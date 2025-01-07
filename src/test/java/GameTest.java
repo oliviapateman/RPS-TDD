@@ -26,8 +26,7 @@ public class GameTest {
         assertEquals(playsRock, game.getWinner());
     }
 
-    private static class ConstantMovePlayer extends Player {
-
+    private static class ConstantMovePlayer implements Player {
         private final int move;
 
         public ConstantMovePlayer(int move) {
