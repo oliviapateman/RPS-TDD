@@ -3,47 +3,35 @@ import org.junit.jupiter.api.Test;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 class ComputerPlayerTest {
 
+    Random random = mock(Random.class);
+    Player computerPlayer = new ComputerPlayer(random);
+
     @Test
     void randomMove0ShouldReturnRock() {
-        int move = getComputerMove(0);
+        when(random.nextInt(3)).thenReturn(0);
+        int move = computerPlayer.chooseMove();
 
         assertEquals(Move.ROCK, move);
     }
 
     @Test
     void randomMove1ShouldReturnPaper() {
-        int move = getComputerMove(1);
+        when(random.nextInt(3)).thenReturn(1);
+        int move = computerPlayer.chooseMove();
 
         assertEquals(Move.PAPER, move);
     }
 
     @Test
     void randomMove2ShouldReturnScissors() {
-        int move = getComputerMove(2);
+        when(random.nextInt(3)).thenReturn(2);
+        int move = computerPlayer.chooseMove();
 
         assertEquals(Move.SCISSORS, move);
-    }
-
-    private static class FakeRandom extends Random {
-        private final int playerMove;
-
-        public FakeRandom(int playerMove) {
-            this.playerMove = playerMove;
-        }
-
-        @Override
-        public int nextInt(int bound) {
-            return playerMove;
-        }
-    }
-
-    private static int getComputerMove(int playerMove) {
-        var player = new ComputerPlayer(new FakeRandom(playerMove));
-
-        return player.chooseMove();
     }
 
 }

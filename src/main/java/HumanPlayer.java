@@ -4,11 +4,16 @@ import java.util.Scanner;
 public class HumanPlayer implements Player {
 
     private final PrintStream printStream;
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public HumanPlayer(PrintStream printStream, Scanner scanner) {
         this.printStream = printStream;
         this.scanner = scanner;
+    }
+
+    @Override
+    public String toString() {
+        return "Human player";
     }
 
     @Override
