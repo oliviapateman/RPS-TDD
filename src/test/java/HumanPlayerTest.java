@@ -1,26 +1,23 @@
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 class HumanPlayerTest {
 
-    //to counteract the \r\n (carriage return and line feed) due to ASCII
-    public static final String EXPECTED_MESSAGE = "Enter (1) Rock or (2) Paper or (3) Scissors: " + System.lineSeparator();
-
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private final PrintStream printStream = mock(PrintStream.class);
 
     @Test
     void chooseMoveShouldPrintMessage() {
         //arrange
-        var player = new HumanPlayer(new PrintStream(outputStream), new Scanner("1"));
+        var player = new HumanPlayer(printStream, new Scanner("1"));
         //act
         player.chooseMove();
         //assert
-        assertEquals(EXPECTED_MESSAGE, outputStream.toString());
+        verify(printStream).println("Enter (1) Rock or (2) Paper or (3) Scissors: ");
     }
 
     @Test
@@ -40,7 +37,7 @@ class HumanPlayerTest {
 
     private void doReturnValueTest(int expected, String input) {
         //arrange
-        var player = new HumanPlayer(new PrintStream(outputStream), new Scanner(input));
+        var player = new HumanPlayer(printStream, new Scanner(input));
         //act
         int move = player.chooseMove();
         //assert

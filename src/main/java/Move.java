@@ -3,16 +3,10 @@ public class Move {
     public static final int ROCK = 0;
     public static final int PAPER = 1;
     public static final int SCISSORS = 2;
-    String[] moves = {"Rock","Paper","Scissors"};
+    static String[] moves = {"Rock","Paper","Scissors"};
 
     public static String convertMove(int move){
-        if (move==0){
-            return "Rock";
-        } else if (move==1) {
-            return "Paper";
-        } else {
-            return "Scissors";
-        }
+        return moves[move];
     }
 
     public static boolean beats(int moveA, int moveB) {
