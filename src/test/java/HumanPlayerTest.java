@@ -36,12 +36,9 @@ class HumanPlayerTest {
     }
 
     private void doReturnValueTest(int expected, String input) {
-        //arrange
         var player = new HumanPlayer(printStream, new Scanner(input));
-        //act
-        int move = player.chooseMove();
-        //assert
-        assertEquals(expected, move);
+
+        assertEquals(expected, player.chooseMove());
     }
 
 }

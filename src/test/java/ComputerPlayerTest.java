@@ -13,25 +13,22 @@ class ComputerPlayerTest {
     @Test
     void randomMove0ShouldReturnRock() {
         when(random.nextInt(3)).thenReturn(0);
-        int move = computerPlayer.chooseMove();
 
-        assertEquals(Move.ROCK, move);
+        assertEquals(Move.ROCK, computerPlayer.chooseMove());
     }
 
     @Test
     void randomMove1ShouldReturnPaper() {
         when(random.nextInt(3)).thenReturn(1);
-        int move = computerPlayer.chooseMove();
 
-        assertEquals(Move.PAPER, move);
+        assertEquals(Move.PAPER, computerPlayer.chooseMove());
     }
 
     @Test
     void randomMove2ShouldReturnScissors() {
         when(random.nextInt(3)).thenReturn(2);
-        int move = computerPlayer.chooseMove();
 
-        assertEquals(Move.SCISSORS, move);
+        assertEquals(Move.SCISSORS, computerPlayer.chooseMove());
     }
 
 }

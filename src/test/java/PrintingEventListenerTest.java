@@ -8,7 +8,7 @@ class PrintingEventListenerTest {
 
     PrintStream printStream = mock(PrintStream.class);
     PrintingEventListener printingEventListener = new PrintingEventListener(printStream);
-    Player humanPlayer = new HumanPlayer(null ,null);
+    Player humanPlayer = new HumanPlayer(null, null);
     Player computerPlayer = new ComputerPlayer(null);
 
     @Test
