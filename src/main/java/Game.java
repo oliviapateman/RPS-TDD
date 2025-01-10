@@ -9,7 +9,7 @@ public class Game {
     private final Player player1;
     private final Player player2;
     private final EventListener eventListener;
-    private Player winner;
+    protected Player winner;
 
     public Game(Player player1, Player player2, EventListener eventListener) {
         this.player1 = player1;

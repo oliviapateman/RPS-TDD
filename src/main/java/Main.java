@@ -8,6 +8,8 @@ public class Main {
         PrintStream printStream = new PrintStream(System.out);
         Player humanPlayer = new HumanPlayer(printStream, new Scanner(System.in));
         Player computerPlayer = new ComputerPlayer(new Random());
-        new Game(humanPlayer, computerPlayer, new PrintingEventListener(printStream)).play();
+        //Game game = new Game(humanPlayer, computerPlayer, new PrintingEventListener(printStream));
+        Tournament tournament = new Tournament(humanPlayer, computerPlayer, new PrintingEventListener(printStream));
+        tournament.doThreeRounds();
     }
 }
