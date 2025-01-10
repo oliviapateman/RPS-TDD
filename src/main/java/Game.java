@@ -9,7 +9,6 @@ public class Game {
     private final Player player1;
     private final Player player2;
     private final EventListener eventListener;
-    protected Player winner;
 
     public Game(Player player1, Player player2, EventListener eventListener) {
         this.player1 = player1;
@@ -18,6 +17,7 @@ public class Game {
     }
 
     public void play() {
+        Player winner = null;
         while (winner == null) {
             Move player1Move = player1.chooseMove();
             Move player2Move = player2.chooseMove();
