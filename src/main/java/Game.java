@@ -1,7 +1,7 @@
 public class Game {
 
     public interface EventListener{
-        void playerChoseMove(Player player, int move);
+        void playerChoseMove(Player player, Move move);
         void playerWins(Player winner);
         void draw();
     }
@@ -19,15 +19,15 @@ public class Game {
 
     public void play() {
         while (winner == null) {
-            int player1Move = player1.chooseMove();
-            int player2Move = player2.chooseMove();
+            Move player1Move = player1.chooseMove();
+            Move player2Move = player2.chooseMove();
 
             eventListener.playerChoseMove(player1, player1Move);
             eventListener.playerChoseMove(player2, player2Move);
 
-            if (Move.beats(player1Move, player2Move)) {
+            if (player1Move.beats(player2Move)) {
                 winner = player1;
-            } else if (Move.beats(player2Move, player1Move)) {
+            } else if (player2Move.beats(player1Move)) {
                 winner = player2;
             } else {
                 eventListener.draw();

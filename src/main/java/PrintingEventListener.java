@@ -9,8 +9,8 @@ public class PrintingEventListener implements Game.EventListener {
     }
 
     @Override
-    public void playerChoseMove(Player player, int move) {
-        printStream.println(player + " chose " + Move.convertMove(move));
+    public void playerChoseMove(Player player, Move move) {
+        printStream.println(player + " chose " + move.toString().toLowerCase());
     }
 
     @Override

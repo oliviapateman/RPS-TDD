@@ -17,8 +17,8 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public int chooseMove() {
+    public Move chooseMove() {
         printStream.println("Enter (1) Rock or (2) Paper or (3) Scissors: ");
-        return scanner.nextInt() - 1;
+        return Move.values()[scanner.nextInt() - 1];
     }
 }

@@ -14,7 +14,7 @@ public class ComputerPlayer implements Player {
     }
 
     @Override
-    public int chooseMove() {
-        return random.nextInt(3);
+    public Move chooseMove() {
+        return Move.values()[random.nextInt(3)];
     }
 }

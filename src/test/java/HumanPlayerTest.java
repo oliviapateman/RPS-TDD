@@ -9,36 +9,32 @@ import static org.mockito.Mockito.*;
 class HumanPlayerTest {
 
     private final PrintStream printStream = mock(PrintStream.class);
+    Scanner scanner = mock(Scanner.class);
+    Player player = new HumanPlayer(printStream, scanner);
 
     @Test
     void chooseMoveShouldPrintMessage() {
-        //arrange
-        var player = new HumanPlayer(printStream, new Scanner("1"));
-        //act
+        when(scanner.nextInt()).thenReturn(1);
         player.chooseMove();
-        //assert
         verify(printStream).println("Enter (1) Rock or (2) Paper or (3) Scissors: ");
     }
 
     @Test
     void whenUserEnters1ShouldReturnRock() {
-        doReturnValueTest(Move.ROCK, "1");
+        when(scanner.nextInt()).thenReturn(1);
+        assertEquals(Move.ROCK, player.chooseMove());
     }
 
     @Test
     void whenUserEnters2ShouldReturnPaper() {
-        doReturnValueTest(Move.PAPER, "2");
+        when(scanner.nextInt()).thenReturn(2);
+        assertEquals(Move.PAPER, player.chooseMove());
     }
 
     @Test
     void whenUserEnters3ShouldReturnScissors() {
-        doReturnValueTest(Move.SCISSORS, "3");
-    }
-
-    private void doReturnValueTest(int expected, String input) {
-        var player = new HumanPlayer(printStream, new Scanner(input));
-
-        assertEquals(expected, player.chooseMove());
+        when(scanner.nextInt()).thenReturn(3);
+        assertEquals(Move.SCISSORS, player.chooseMove());
     }
 
 }

@@ -1,3 +1,3 @@
 public interface Player {
-    int chooseMove();
+    Move chooseMove();
 }

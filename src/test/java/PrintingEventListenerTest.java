@@ -14,37 +14,30 @@ class PrintingEventListenerTest {
     @Test
     void computerPlayerChoseMove() {
         printingEventListener.playerChoseMove(computerPlayer, Move.ROCK);
-
-        verify(printStream).println("Computer chose Rock");
+        verify(printStream).println("Computer chose rock");
     }
 
     @Test
     void humanPlayerChoseMove() {
         printingEventListener.playerChoseMove(humanPlayer, Move.SCISSORS);
-
-        verify(printStream).println("Human player chose Scissors");
+        verify(printStream).println("Human player chose scissors");
     }
 
     @Test
     void computerPlayerWins() {
         printingEventListener.playerWins(computerPlayer);
-
         verify(printStream).println("Computer wins!");
     }
 
     @Test
     void humanPlayerWins() {
         printingEventListener.playerWins(humanPlayer);
-
         verify(printStream).println("Human player wins!");
     }
 
     @Test
     void draw() {
-        //Arrange
-        //Act
         printingEventListener.draw();
-        //Assert
         verify(printStream).println("It's a draw!");
     }
 }

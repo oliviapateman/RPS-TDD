@@ -7,22 +7,22 @@ public class MoveTest {
 
     @Test
     void rockShouldBeatScissors() {
-        assertTrue(Move.beats(Move.ROCK, Move.SCISSORS));
+        assertTrue(Move.ROCK.beats(Move.SCISSORS));
     }
 
     @Test
     void paperShouldBeatRock() {
-        assertTrue(Move.beats(Move.PAPER, Move.ROCK));
+        assertTrue(Move.PAPER.beats(Move.ROCK));
     }
 
     @Test
     void scissorsShouldBeatPaper() {
-        assertTrue(Move.beats(Move.SCISSORS, Move.PAPER));
+        assertTrue(Move.SCISSORS.beats(Move.PAPER));
     }
 
     @Test
     void paperShouldNotBeatScissors() {
-        assertFalse(Move.beats(Move.PAPER, Move.SCISSORS));
+        assertFalse(Move.PAPER.beats(Move.SCISSORS));
     }
 
 }
